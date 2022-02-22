@@ -49,7 +49,7 @@ def run(space, m, T, num_train, num_test):
     )
     s1 = s[:, 0, :]
     s2 = s[:, 1, :]
-    x = np.linspace(0, 1, 100)[:, None]
+    x = np.linspace(0, T, m)[:, None]
     X_train = [sensor_values1, sensor_values2, x]
     y_train = s1
 
@@ -72,7 +72,7 @@ def run(space, m, T, num_train, num_test):
     )
     s1 = s[:, 0, :]
     s2 = s[:, 1, :]
-    x = np.linspace(0, 1, 100)[:, None]
+    x = np.linspace(0, T, m)[:, None]
     X_test = [sensor_values1, sensor_values2, x]
     y_test = s1
 
