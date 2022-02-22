@@ -42,7 +42,7 @@ def solve_ADR(xmin, xmax, tmin, tmax, k, v, g, dg, f, u0, Nx, Nt):
     return x, t, u
 
 
-def eval_s(k, T, Nt, sensor_values1, sensor_values2):
+def eval_s(m, k, T, Nt, sensor_values1, sensor_values2):
 
     return solve_ADR(
         0,
@@ -55,7 +55,7 @@ def eval_s(k, T, Nt, sensor_values1, sensor_values2):
         lambda u: 2 * k * u,
         lambda x, t: np.tile(sensor_values2[:, None], (1, len(t))),
         lambda x: np.zeros_like(x),
-        len(sensor_values1),
+        m,
         Nt,
     )[2]
 
@@ -84,6 +84,7 @@ def run(space, m, k, T, Nt, num_train, num_test):
     s = list(
         map(
             eval_s,
+            np.hstack(np.tile(m, (num_train, 1))),
             np.hstack(np.tile(k, (num_train, 1))),
             np.hstack(np.tile(T, (num_train, 1))),
             np.hstack(np.tile(Nt, (num_train, 1))),
@@ -103,6 +104,7 @@ def run(space, m, k, T, Nt, num_train, num_test):
     s = list(
         map(
             eval_s,
+            np.hstack(np.tile(m, (num_test, 1))),
             np.hstack(np.tile(k, (num_test, 1))),
             np.hstack(np.tile(T, (num_test, 1))),
             np.hstack(np.tile(Nt, (num_test, 1))),
