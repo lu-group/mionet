@@ -43,7 +43,6 @@ def solve_ADR(xmin, xmax, tmin, tmax, k, v, g, dg, f, u0, Nx, Nt):
 
 
 def eval_s(m, k, T, Nt, sensor_values1, sensor_values2):
-
     return solve_ADR(
         0,
         1,
