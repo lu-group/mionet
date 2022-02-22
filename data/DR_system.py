@@ -122,12 +122,12 @@ def run(space, m, k, T, Nt, num_train, num_test):
 
 def main():
     space = GRF(1, length_scale=0.2, N=1000, interp="cubic")
-    m = 10
+    m = 100
     k = 0.01
     T = 1
-    Nt = 10
-    num_train = 10
-    num_test = 50
+    Nt = 100
+    num_train = 1000
+    num_test = 5000
 
     run(space, m, k, T, Nt, num_train, num_test)
 
