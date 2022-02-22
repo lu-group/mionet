@@ -36,7 +36,6 @@ def solve_ADVD(xmin, xmax, tmin, tmax, D, V, Nx, Nt):
 
 
 def eval_s(m, T, Nt, sensor_values1, sensor_values2):
-
     return solve_ADVD(0, 1, 0, T, sensor_values1, sensor_values2, m, Nt)[2]
 
 
