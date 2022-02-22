@@ -68,7 +68,8 @@ def run(space, m, k, T, Nt, num_train, num_test):
         Nt: Nt in FDM
         npoints_output: For a input function, randomly choose these points from the solver output as data
     """
-
+    
+    print("Generating operator data...", flush=True)
     xmin = 0
     xmax = 1
     tmin = 0
