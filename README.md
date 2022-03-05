@@ -15,12 +15,11 @@ The source code for the paper [Jin, Pengzhan, Shuai Meng, and Lu Lu. "MIONet: Le
 If you use this code for academic research, you are encouraged to cite the following paper:
 
 ```
-@article{pengzhan2022mionet,
-  title={MIONet: Learning multiple-input operators via tensor product}, 
-  author={Pengzhan Jin and Shuai Meng and Lu Lu},
-  year={2022},
-  eprint={2202.06137},
-  archivePrefix={arXiv}
+@article{jin2022mionet,
+  title={MIONet: Learning multiple-input operators via tensor product},
+  author={Jin, Pengzhan and Meng, Shuai and Lu, Lu},
+  journal={arXiv preprint arXiv:2202.06137},
+  year={2022}
 }
 ```
 
