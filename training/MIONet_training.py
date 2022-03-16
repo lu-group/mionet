@@ -1,4 +1,4 @@
-import deepxde
+import deepxde as dde
 from deepxde.nn.tensorflow_compat_v1.mionet import MIONet, MIONetCartesianProd
 from deepxde.nn.tensorflow_compat_v1.deeponet import DeepONet, DeepONetCartesianProd
 from deepxde.data.quadruple import Quadruple, QuadrupleCartesianProd
