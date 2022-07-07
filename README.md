@@ -1,6 +1,6 @@
 # MIONet: Learning multiple-input operators via tensor product
 
-The source code for the paper [Jin, Pengzhan, Shuai Meng, and Lu Lu. "MIONet: Learning multiple-input operators via tensor product." arXiv preprint arXiv:2202.06137 (2022)](https://arxiv.org/abs/2202.06137).
+The source code for the paper [Pengzhan Jin, Shuai Meng, and Lu Lu. "MIONet: Learning multiple-input operators via tensor product." arXiv preprint arXiv:2202.06137 (2022)](https://arxiv.org/abs/2202.06137).
 
 ## Code
 
@@ -8,7 +8,9 @@ The source code for the paper [Jin, Pengzhan, Shuai Meng, and Lu Lu. "MIONet: Le
     - [ODE system](data/ODE_system.py)
     - [Diffusion-Reaction system](data/DR_system.py)
     - [Advection-Diffusion system](data/ADVD_system.py)
-- [MIONet training](training/MIONet_training.py)
+- Training
+    - [MIONet training](training/MIONet_training.py)
+    - [MIONet periodic training](training/mionet_periodic/main.py)
  
 ## Cite this work
 
