@@ -1,5 +1,5 @@
 import numpy as np
-import pandas as pd
+
 from spaces import GRF
 
 
@@ -13,7 +13,7 @@ def solve_ADR(xmin, xmax, tmin, tmax, k, v, g, dg, f, u0, Nx, Nt):
     t = np.linspace(tmin, tmax, Nt)
     h = x[1] - x[0]
     dt = t[1] - t[0]
-    h2 = h ** 2
+    h2 = h**2
 
     D1 = np.eye(Nx, k=1) - np.eye(Nx, k=-1)
     D2 = -2 * np.eye(Nx) + np.eye(Nx, k=-1) + np.eye(Nx, k=1)
@@ -50,7 +50,7 @@ def eval_s(m, k, T, Nt, sensor_values1, sensor_values2):
         T,
         lambda x: 0.01 * (1 + abs(sensor_values1)),
         lambda x: np.zeros_like(x),
-        lambda u: k * u ** 2,
+        lambda u: k * u**2,
         lambda u: 2 * k * u,
         lambda x, t: np.tile(sensor_values2[:, None], (1, len(t))),
         lambda x: np.zeros_like(x),
@@ -67,7 +67,6 @@ def run(space, m, k, T, Nt, num_train, num_test):
         Nt: Nt in FDM
         npoints_output: For a input function, randomly choose these points from the solver output as data
     """
-    
     print("Generating operator data...", flush=True)
     xmin = 0
     xmax = 1

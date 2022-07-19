@@ -1,16 +1,9 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 from deepxde.backend import tf
 from deepxde.real import Real
-#from config_2 import processes
 
 
 real = Real(32)
 processes = 4
-
-
 
 
 def default_float():

@@ -1,7 +1,3 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import sys
 import time
 from functools import wraps
@@ -65,8 +61,7 @@ def safe_test(model, data, X_test, y_test, fname=None):
 
 
 def eig(kernel, num, Nx, eigenfunction=True):
-    """Compute the eigenvalues and eigenfunctions of a kernel on [0, 1].
-    """
+    """Compute the eigenvalues and eigenfunctions of a kernel on [0, 1]."""
     h = 1 / (Nx - 1)
     c = kernel(np.linspace(0, 1, num=Nx)[:, None])[0] * h
     A = np.empty((Nx, Nx))

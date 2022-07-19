@@ -1,5 +1,5 @@
 import numpy as np
-import pandas as pd
+
 from spaces import GRF
 
 
@@ -15,7 +15,7 @@ def solve_ADVD(xmin, xmax, tmin, tmax, D, V, Nx, Nt):
     h = x[1] - x[0]
     dt = t[1] - t[0]
     lam = dt / h
-    mu = dt / h ** 2
+    mu = dt / h**2
     u = np.zeros([Nx, Nt])
     u[:, 0] = V
     d = D[1:]

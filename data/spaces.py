@@ -1,7 +1,3 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import matplotlib.pyplot as plt
 import numpy as np
 from pathos.pools import ProcessPool
@@ -26,7 +22,7 @@ class FinitePowerSeries:
     def eval_u(self, a, sensors):
         mat = np.ones((self.N, len(sensors)))
         for i in range(1, self.N):
-            mat[i] = np.ravel(sensors ** i)
+            mat[i] = np.ravel(sensors**i)
         return np.dot(a, mat)
 
 
@@ -58,14 +54,12 @@ class GRF(object):
         self.L = np.linalg.cholesky(self.K + 1e-13 * np.eye(self.N))
 
     def random(self, n):
-        """Generate `n` random feature vectors.
-        """
+        """Generate `n` random feature vectors."""
         u = np.random.randn(self.N, n)
         return np.dot(self.L, u).T
 
     def eval_u_one(self, y, x):
-        """Compute the function value at `x` for the feature `y`.
-        """
+        """Compute the function value at `x` for the feature `y`."""
         if self.interp == "linear":
             return np.interp(x, np.ravel(self.x), y)
         f = interpolate.interp1d(
@@ -102,7 +96,7 @@ class GRF_KL(object):
         elif kernel == "AE":
             kernel = gp.kernels.Matern(length_scale=length_scale, nu=0.5)
         eigval, eigvec = eig(kernel, num_eig, N, eigenfunction=True)
-        eigvec *= eigval ** 0.5
+        eigvec *= eigval**0.5
         x = np.linspace(0, T, num=N)
         self.eigfun = [
             interpolate.interp1d(x, y, kind=interp, copy=False, assume_sorted=True)
@@ -113,13 +107,11 @@ class GRF_KL(object):
         return np.array([np.ravel(f(sensors)) for f in self.eigfun])
 
     def random(self, n):
-        """Generate `n` random feature vectors.
-        """
+        """Generate `n` random feature vectors."""
         return np.random.randn(n, self.num_eig)
 
     def eval_u_one(self, y, x):
-        """Compute the function value at `x` for the feature `y`.
-        """
+        """Compute the function value at `x` for the feature `y`."""
         eigfun = [f(x) for f in self.eigfun]
         return np.sum(eigfun * y)
 
@@ -139,7 +131,7 @@ def space_samples(space, T):
     plt.plot(sensors, np.mean(u, axis=0), "k")
     plt.plot(sensors, np.std(u, axis=0), "k--")
     plt.plot(sensors, np.cov(u.T)[0], "k--")
-    plt.plot(sensors, np.exp(-0.5 * sensors ** 2 / 0.2 ** 2))
+    plt.plot(sensors, np.exp(-0.5 * sensors**2 / 0.2**2))
     for ui in u[:3]:
         plt.plot(sensors, ui)
     plt.show()
@@ -154,7 +146,10 @@ def main():
 
     space1 = GRF(1, length_scale=0.1, N=100, interp="cubic")
     space2 = GRF(1, length_scale=1, N=100, interp="cubic")
-    W2 = np.trace(space1.K + space2.K - 2 * linalg.sqrtm(space1.K @ space2.K)) ** 0.5 / 100 ** 0.5
+    W2 = (
+        np.trace(space1.K + space2.K - 2 * linalg.sqrtm(space1.K @ space2.K)) ** 0.5
+        / 100**0.5
+    )
     print(W2)
 
 
