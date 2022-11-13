@@ -1,6 +1,6 @@
 # MIONet: Learning multiple-input operators via tensor product
 
-The source code for the paper [P. Jin, S. Meng, & L. Lu. MIONet: Learning multiple-input operators via tensor product. *arXiv preprint arXiv:2202.06137*, 2022](https://arxiv.org/abs/2202.06137).
+The source code for the paper [P. Jin, S. Meng, & L. Lu. MIONet: Learning multiple-input operators via tensor product. *SIAM Journal on Scientific Computing*, 44(6), A3490–A3514, 2022](https://doi.org/10.1137/22M1477751).
 
 ## Code
 
@@ -18,10 +18,14 @@ If you use this code for academic research, you are encouraged to cite the follo
 
 ```
 @article{jin2022mionet,
-  title={MIONet: Learning multiple-input operators via tensor product},
-  author={Jin, Pengzhan and Meng, Shuai and Lu, Lu},
-  journal={arXiv preprint arXiv:2202.06137},
-  year={2022}
+  title   = {MIONet: Learning multiple-input operators via tensor product},
+  author  = {Jin, Pengzhan and Meng, Shuai and Lu, Lu},
+  journal = {SIAM Journal on Scientific Computing},
+  volume  = {44},
+  number  = {6},
+  pages   = {A3490-A3514},
+  year    = {2022},
+  doi     = {10.1137/22M1477751}
 }
 ```
 
